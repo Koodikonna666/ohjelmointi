@@ -70,6 +70,7 @@ public class Dao {
 				if(rs!=null);{
 					while(rs.next()) {
 						Asiakas asiakas = new Asiakas();
+						asiakas.setAsiakas_id(rs.getInt(1));
 						asiakas.setEtunimi(rs.getString(2));
 						asiakas.setSukunimi(rs.getString(3));
 						asiakas.setPuhelin(rs.getString(4));
@@ -83,6 +84,28 @@ public class Dao {
 			e.printStackTrace();
 		}
 		return asiakkaat;
+	}
+	//en keksi tapaa jolla syöttää asiakas databaseen.
+	//pitäisi laiittaa id jo valmiiksi en keksi tapaa saada sitä
+	// noudattamaan auto incrementtiä
+	public boolean lisaaAsiakas(Asiakas asiakas) {
+		boolean paluuArvo=true;
+		sql="INSERT INTO asiakkaat VALUES (?,?,?,?,?)";
+		try {
+			con = yhdista();
+			stmtPrep = con.prepareStatement(sql);
+			stmtPrep.setInt(1, null);
+			stmtPrep.setString(2, asiakas.getEtunimi());
+			stmtPrep.setString(3, asiakas.getSukunimi());
+			stmtPrep.setString(4, asiakas.getPuhelin());
+			stmtPrep.setString(5, asiakas.getSposti());
+			stmtPrep.executeUpdate();
+			con.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+			paluuArvo = false;
+		}
+		return paluuArvo;
 	}
 	
 	

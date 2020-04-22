@@ -6,11 +6,14 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<title>Insert title here</title>
+<title>Asiakkaat</title>
 </head>
 <body>
 <table id="listaus">
 	<thead>	
+		<tr>
+			<th colspan="4"><span id="uusiAsiakas">Lisää uusi asiakas</span></th>
+		</tr>
 		<tr>
 			<th>Hakusana:</th>
 			<th colspan="2"><input type="text" id="hakusana"></th>
@@ -29,6 +32,11 @@
 </table>
 <script>
 $(document).ready(function(){
+	
+	$("#uusiAsiakas").click(function(){
+		document.location="lisaaasiakas.jsp";
+	})
+	
 	haeAsiakkaat();
 	$("#hakunappi").click(function(){
 		haeAsiakkaat();
