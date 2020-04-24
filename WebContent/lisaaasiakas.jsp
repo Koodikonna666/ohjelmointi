@@ -84,6 +84,7 @@ $(document).ready(function(){
 			lisaaTiedot();
 		}
 	});
+	$("#etunimi").focus();
 });
 //funktio tietojen lis‰‰mist‰ varten. Kutsutaan backin POST-metodia ja v‰litet‰‰n kutsun mukana uudet tiedot json-stringin‰.
 //POST /autot/
