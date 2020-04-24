@@ -86,11 +86,10 @@ $(document).ready(function(){
 	});
 	$("#etunimi").focus();
 });
-//funktio tietojen lis‰‰mist‰ varten. Kutsutaan backin POST-metodia ja v‰litet‰‰n kutsun mukana uudet tiedot json-stringin‰.
-//POST /autot/
+
 function lisaaTiedot(){	
-	var formJsonStr = formDataJsonStr($("#tiedot").serializeArray()); //muutetaan lomakkeen tiedot json-stringiksi
-	$.ajax({url:"asiakkaat", data:formJsonStr, type:"POST", dataType:"json", success:function(result) { //result on joko {"response:1"} tai {"response:0"}       
+	var formJsonStr = formDataJsonStr($("#tiedot").serializeArray()); 
+	$.ajax({url:"asiakkaat", data:formJsonStr, type:"POST", dataType:"json", success:function(result) { 
 		if(result.response==0){
       	$("#ilmo").html("Asiakkaan lis‰‰minen ep‰onnistui.");
       }else if(result.response==1){			

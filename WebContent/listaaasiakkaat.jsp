@@ -12,12 +12,12 @@
 <table id="listaus">
 	<thead>	
 		<tr>
-			<th colspan="4"><span id="uusiAsiakas">Lis‰‰ uusi asiakas</span></th>
+			<th colspan="5"><span id="uusiAsiakas">Lis‰‰ uusi asiakas</span></th>
 		</tr>
 		<tr>
 			<th>Hakusana:</th>
 			<th colspan="2"><input type="text" id="hakusana"></th>
-			<th><input type="button" value="hae" id="hakunappi"></th>
+			<th colspan="2"><input type="button" value="Hae" id="hakunappi"></th>
 		</tr>	
 		<tr>
 			<th>Etunimi</th>
@@ -60,7 +60,8 @@ function haeAsiakkaat(){
 			htmlStr+="<td>"+field.sukunimi+"</td>";
 			htmlStr+="<td>"+field.puhelin+"</td>";
 			htmlStr+="<td>"+field.sposti+"</td>";
-        	htmlStr+="<td><span class='poista' onclick=poista("+field.asiakas_id+",'"+field.etunimi+"','"+field.sukunimi+"')>Poista</span></td>"; 
+			htmlStr+="<td><a href='muutaasiakas.jsp?asiakas_id="+field.asiakas_id+"'>Muuta</a>&nbsp;&nbsp;";
+        	htmlStr+="<span class='poista' onclick=poista("+field.asiakas_id+",'"+field.etunimi+"','"+field.sukunimi+"')>Poista</span></td>"; 
 			htmlStr+="</tr>";
 			$("#listaus tbody").append(htmlStr);
 		});
