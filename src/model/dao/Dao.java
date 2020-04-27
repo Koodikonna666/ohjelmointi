@@ -123,6 +123,25 @@ public class Dao {
 		return paluuArvo;
 	}
 	
+	public boolean poistaKaikkiAsiakkaat(String pwd) {
+		boolean paluuArvo = true;
+		if(pwd!="cfe3d") {
+			return false;
+		}
+		sql = "DELETE FROM asiakkaat";
+		try {
+			con = yhdista();
+			stmtPrep = con.prepareStatement(sql);
+			stmtPrep.executeUpdate();
+			con.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+			paluuArvo = false;
+		}
+		return paluuArvo;
+	}
+	
+	
 	public Asiakas etsiAsiakas(int asiakas_id) {
 		Asiakas asiakas = null;
 		sql = "SELECT * FROM asiakkaat WHERE asiakas_id = ?";

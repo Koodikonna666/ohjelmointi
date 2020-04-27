@@ -35,7 +35,7 @@
 			</tr>
 		</tbody>
 	</table>
-		<input type="hidden" name="id" id="id">	
+		<input type="hidden" name="asiakas_id" id="asiakas_id">	
 </form>
 <span id="ilmo"></span>
 </body>
@@ -47,7 +47,7 @@
 		var asiakas_id = requestURLParam("asiakas_id"); //Funktio löytyy scripts/main.js 	
 		$.ajax({url:"asiakkaat/haeyksi/"+asiakas_id, type:"GET", dataType:"json", success:function(result){	
 			console.log(result)
-			$("#id").val(result.asiakas_id);
+			$("#asiakas_id").val(result.asiakas_id);
 			$("#etunimi").val(result.etunimi);
 			$("#sukunimi").val(result.sukunimi);
 			$("#puhelin").val(result.puhelin);
